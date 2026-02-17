@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pasandida Mard 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{
+background:linear-gradient(135deg,#ffe6f0,#ffd1dc,#ffc0cb);
+color:#4a2c4d;
+overflow-x:hidden;
+min-height:100vh;
+position:relative;
+}
+nav{position:fixed;top:0;width:100%;padding:20px 40px;background:rgba(255,255,255,0.45);backdrop-filter:blur(14px);z-index:1000;}
+nav strong{font-family:'Playfair Display',serif;font-size:24px;color:#ff4d6d;}
+.section{min-height:100vh;padding:180px 40px 80px;display:none;align-items:center;justify-content:center;opacity:0;transform:translateY(40px);transition:0.8s;}
+.section.active{display:flex;opacity:1;transform:translateY(0);}
+.world{max-width:900px;text-align:center;background:rgba(255,255,255,0.3);backdrop-filter:blur(20px);padding:60px;border-radius:45px;box-shadow:0 25px 60px rgba(0,0,0,0.25);position:relative;z-index:5;}
+h1,h2{font-family:'Playfair Display',serif;color:#ff4d6d;margin-bottom:25px;}
+h1{font-size:55px;}h2{font-size:40px;}
+p{font-size:20px;line-height:1.8;margin-bottom:18px;}
+button{padding:15px 35px;border:none;border-radius:35px;background:linear-gradient(45deg,#ff4d6d,#ff79c6);color:white;font-size:18px;font-weight:700;cursor:pointer;margin:10px;box-shadow:0 8px 22px rgba(255,77,109,0.45);}
+button:hover{transform:scale(1.08);}
+.heart{position:fixed;font-size:34px;opacity:0.75;animation:floatHeart 14s linear infinite;pointer-events:none;z-index:1;}
+@keyframes floatHeart{0%{transform:translateY(120vh);opacity:0;}10%{opacity:0.8;}100%{transform:translateY(-120vh);opacity:0;}}
+.petal{position:fixed;font-size:28px;animation:fall 12s linear infinite;pointer-events:none;z-index:0;}
+@keyframes fall{0%{transform:translateY(-10vh) rotate(0deg);opacity:0;}10%{opacity:1;}100%{transform:translateY(120vh) rotate(360deg);opacity:0;}}
+.boom{position:fixed;font-size:28px;animation:boom 1.2s ease-out forwards;pointer-events:none;z-index:9999;}
+@keyframes boom{0%{transform:scale(0.5);opacity:1;}100%{transform:translate(var(--x),var(--y)) scale(1.5);opacity:0;}}
+.open-box{width:200px;height:200px;background:linear-gradient(45deg,#ff4d6d,#ff79c6);border-radius:30px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:white;cursor:pointer;margin:30px auto;box-shadow:0 20px 40px rgba(255,77,109,0.6);}
+.secret-imgs{display:none;gap:15px;justify-content:center;margin-top:25px;}
+.secret-imgs img{width:120px;height:120px;border-radius:20px;object-fit:cover;box-shadow:0 10px 25px rgba(0,0,0,0.25);}
+@media(max-width:768px){h1{font-size:38px;}h2{font-size:30px;}p{font-size:16px;}}
+</style>
+</head>
+<body>
+
+<!-- MUSIC -->
+<audio autoplay loop>
+<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
+</audio>
+
+<!-- BACKGROUND -->
+<div class="heart" style="left:10%;">❤️</div>
+<div class="heart" style="left:30%;">💖</div>
+<div class="heart" style="left:50%;">💕</div>
+<div class="heart" style="left:70%;">💗</div>
+<div class="petal" style="left:20%;">🌸</div>
+<div class="petal" style="left:40%;">🌸</div>
+<div class="petal" style="left:60%;">🌸</div>
+<div class="petal" style="left:80%;">🌸</div>
+
+<nav><strong>💗 Pasandida Mard</strong></nav>
+
+<!-- HOME -->
+<section id="home" class="section active">
+<div class="world">
+<h1>Welcome 💗</h1>
+<p>He didn’t come into my life loudly.</p>
+<p>He arrived quietly, naturally… and stayed.</p>
+<p>There’s something about him that feels familiar, like my heart already knew him.</p>
+<p>This space is about him — my pasandida mard 💗</p>
+<button onclick="showSection('presence')">Next → Presence</button>
+</div>
+</section>
+
+<!-- PRESENCE -->
+<section id="presence" class="section">
+<div class="world">
+<h2>His Presence 💖</h2>
+<p>His presence has a calm I can’t explain.</p>
+<p>It doesn’t overwhelm — it comforts.</p>
+<p>When he’s around, things feel lighter. I don’t try to be anything else.</p>
+<p>Somehow, just being near him feels enough.</p>
+<button onclick="showSection('moments')">Next → Moments</button>
+<button onclick="showSection('home')">Back</button>
+</div>
+</section>
+
+<!-- MOMENTS -->
+<section id="moments" class="section">
+<div class="world">
+<h2>Small Moments 💕</h2>
+<p>It’s never about big moments with him.</p>
+<p>It’s the small ones that stay — a look, a smile, a simple word.</p>
+<p>Some people don’t try — they just become important.</p>
+<button onclick="initCatchGame()">Catch Me ❤️</button><br>
+<button onclick="showSection('feelings')">Next → Feelings</button>
+<button onclick="showSection('presence')">Back</button>
+</div>
+</section>
+
+<!-- FEELINGS -->
+<section id="feelings" class="section">
+<div class="world">
+<h2>Feelings 💗</h2>
+<p>My feelings for him grew quietly — no rush, no noise.</p>
+<p>Just a steady warmth that stayed. Comfortable. Real.</p>
+<p>He became someone my heart trusts.</p>
+<button onclick="showSection('forever')">Next → Forever</button>
+<button onclick="showSection('moments')">Back</button>
+</div>
+</section>
+
+<!-- FOREVER -->
+<section id="forever" class="section">
+<div class="world">
+<h2>Forever 💓</h2>
+<p>I don’t know what tomorrow looks like, but I know how he feels in my heart.</p>
+<p>Some people feel temporary. And some… feel lasting.</p>
+<p>He feels like someone worth choosing — again and again.</p>
+<button onclick="showSection('dream')">Next → Dream</button>
+<button onclick="showSection('feelings')">Back</button>
+</div>
+</section>
+
+<!-- DREAM -->
+<section id="dream" class="section">
+<div class="world">
+<h2>Dream Page 💞</h2>
+<p>Thinking about him feels peaceful, like a soft thought before sleep.</p>
+<p>He’s not a fantasy. He’s a feeling that feels real.</p>
+<p>And somehow, he became part of my dreams.</p>
+<button onclick="showSection('secret')">Secret 🤍</button>
+<button onclick="showSection('home')">Back</button>
+</div>
+</section>
+
+<!-- SECRET -->
+<section id="secret" class="section">
+<div class="world">
+<h2>Secret Message 🤍</h2>
+<div id="typingBox"></div>
+<div class="secret-imgs" id="secretImgs">
+<img src="C:\Users\pc\Pictures\Nationwide Impact_files\4905c174f941117590da405d87ad42fb.jpg">
+<img src="C:\Users\pc\Pictures\Nationwide Impact_files\b211cac7bcdfddd2a5d8c53f43020e62.jpg">
+<img src="C:\Users\pc\Pictures\Nationwide Impact_files\Fxlq9-DWAAEibA2.jpg">
+</div>
+<button onclick="startSecret()">Reveal 💥💗</button>
+<button onclick="showSection('home')">Back</button>
+</div>
+</section>
+
+<script>
+function showSection(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+/* CATCH ME GAME */
+let catchInitialized = false;
+function initCatchGame(){
+if(catchInitialized) return;
+catchInitialized = true;
+const btn = document.createElement("button");
+btn.id = "catchBtn";
+btn.innerText = "Catch Me 💗";
+document.querySelector("#moments .world").appendChild(btn);
+
+const catchLines=[
+"❤️ I love you endlessly!","💖 You're testing my patience, baby! 😘",
+"💕 Every click makes me love you more!","💗 You are my heart and my laughter!",
+"💓 Keep trying, cutie! You're mine!","💞 You're my favorite distraction!",
+"💘 Click me again, I dare you! 💖","💝 Every click = more love!",
+"💖 My heart skips for you!","💗 You are my sweetest dream!",
+"💞 Can't resist your charm!","💓 Forever and always mine!",
+"😌 Stop running, I already chose you!","💘 Why are you so hard to catch?",
+"🤍 Every try makes you cuter!","😉 Playing hard to get, huh?",
+"🥰 You look adorable chasing me!","💗 My heart is laughing right now!",
+"😏 Almost caught me!","💕 I like being chased… by you",
+"💖 One more click, don’t give up!","💞 You and me, this is fun!","💓 Even if you miss, I still like you",
+"😘 Catch me or not… I’m still yours"
+];
+
+setInterval(()=>{
+btn.style.position="absolute";
+btn.style.left=Math.random()*(window.innerWidth-200)+"px";
+btn.style.top=Math.random()*(window.innerHeight-150)+"px";
+},1200);
+
+btn.onclick = ()=> btn.innerText = catchLines[Math.floor(Math.random()*catchLines.length)];
+}
+
+/* SECRET MESSAGE */
+let secretIndex = 0, charIndex = 0, secretStarted = false;
+const secretLines=[
+"I don’t say this out loud often… 💗",
+"But you matter to me more than you know.",
+"Your presence feels calm.",
+"Your voice feels familiar.",
+"Your smile feels like home.",
+"Somehow… you became my pasandida mard 🤍"
+];
+
+function startSecret(){
+if(secretStarted) return;
+secretStarted = true;
+typeSecret();
+heartBoom();
+}
+
+function typeSecret(){
+if(secretIndex>=secretLines.length){
+document.getElementById("secretImgs").style.display="flex";
+return;
+}
+let p;
+if(charIndex===0){
+p = document.createElement("p");
+p.id = "line"+secretIndex;
+document.getElementById("typingBox").appendChild(p);
+}else{
+p = document.getElementById("line"+secretIndex);
+}
+p.textContent += secretLines[secretIndex][charIndex];
+charIndex++;
+if(charIndex<secretLines[secretIndex].length){
+setTimeout(typeSecret,50);
+}else{
+charIndex=0;
+secretIndex++;
+setTimeout(typeSecret,600);
+}
+}
+
+/* HEART BOOM */
+function heartBoom(){
+for(let k=0;k<30;k++){
+const h=document.createElement("div");
+h.className="boom";
+h.innerText=["💗","💖","💕","💘","💞"][Math.floor(Math.random()*5)];
+h.style.left="50%";
+h.style.top="50%";
+h.style.setProperty("--x",(Math.random()*400-200)+"px");
+h.style.setProperty("--y",(Math.random()*400-200)+"px");
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),1200);
+}
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
